@@ -9,305 +9,105 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --gold:#C9A84C;
-  --gold2:#E8D5A3;
-  --gold3:#F5E8C0;
-  --gold-dark:#8B6914;
-  --bg:#060402;
-  --text:#F5EDD8;
-  --muted:#8A7A5A;
-  --border:rgba(201,168,76,0.2);
+  --gold:#C9A84C;--gold2:#E8D5A3;--gold3:#F5E8C0;--gold-dark:#8B6914;
+  --bg:#060402;--text:#F5EDD8;--muted:#8A7A5A;--border:rgba(201,168,76,0.2);
 }
-html,body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Montserrat',sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
-}
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;
-  background:
-    radial-gradient(ellipse 120% 60% at 50% -5%,rgba(201,168,76,0.1) 0%,transparent 60%),
-    radial-gradient(ellipse 50% 50% at 90% 90%,rgba(139,105,20,0.07) 0%,transparent 55%);
-  pointer-events:none;
-}
-body::after{
-  content:'';position:fixed;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold-dark) 20%,var(--gold) 40%,var(--gold3) 50%,var(--gold) 60%,var(--gold-dark) 80%,transparent);
-  z-index:100;
-}
+html,body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 120% 60% at 50% -5%,rgba(201,168,76,0.1) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 90%,rgba(139,105,20,0.07) 0%,transparent 55%);pointer-events:none}
+body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark) 20%,var(--gold) 40%,var(--gold3) 50%,var(--gold) 60%,var(--gold-dark) 80%,transparent);z-index:100}
 .wrap{position:relative;z-index:1;padding-bottom:60px}
-
-/* HEADER */
 .header{padding:50px 28px 32px;text-align:center}
-.brand{font-size:8px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px}
+.brand{font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px}
 .star-wrap{margin:0 auto 18px;position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
-.star-gem{
-  width:10px;height:10px;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));
-  transform:rotate(45deg);
-  box-shadow:0 0 16px rgba(201,168,76,0.7),0 0 32px rgba(201,168,76,0.3);
-}
-.star-wrap::before,.star-wrap::after{
-  content:'';position:absolute;background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.star-wrap::before{left:0;right:0;height:1px;top:50%;transform:translateY(-50%)}
-.star-wrap::after{top:0;bottom:0;width:1px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
-.h-sup{font-size:10px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.h-main{
-  font-family:'Cormorant Garamond',serif;
-  font-size:38px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:18px;
-}
-.h-main em{
-  font-style:italic;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
+.star-gem{width:10px;height:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));transform:rotate(45deg);box-shadow:0 0 16px rgba(201,168,76,0.7),0 0 32px rgba(201,168,76,0.3)}
+.star-wrap::before{content:'';position:absolute;left:0;right:0;height:1px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.star-wrap::after{content:'';position:absolute;top:0;bottom:0;width:1px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
+.h-sup{font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.h-main{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:18px}
+.h-main em{font-style:italic;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .h-div{display:flex;align-items:center;gap:10px;justify-content:center;max-width:180px;margin:0 auto 16px}
 .h-div-line{flex:1;height:1px}
 .h-div-line:first-child{background:linear-gradient(90deg,transparent,var(--gold))}
 .h-div-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .h-div-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;box-shadow:0 0 6px var(--gold)}
-.h-sub{font-size:12px;font-weight:300;color:var(--muted);line-height:1.7;max-width:250px;margin:0 auto}
+.h-sub{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;max-width:260px;margin:0 auto}
 
-/* ФОРМА КАРТКА */
-.form-card{
-  margin:28px 20px 0;
-  background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:26px 20px 22px;
-  position:relative;
-}
-.form-card::before{
-  content:'';position:absolute;top:0;left:20px;right:20px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent);
-  border-radius:50%;
-}
-.form-card::after{
-  content:'';position:absolute;bottom:0;left:20px;right:20px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.form-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:16px;font-style:italic;font-weight:300;
-  color:var(--gold2);text-align:center;margin-bottom:20px;
-}
+.blocked{display:none;margin:32px 20px;background:linear-gradient(160deg,rgba(201,168,76,0.08),rgba(201,168,76,0.02));border:1px solid var(--border);border-radius:20px;padding:36px 24px;text-align:center;position:relative}
+.blocked::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.blocked-icon{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold);opacity:.5;margin-bottom:16px}
+.blocked-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;color:var(--gold2);margin-bottom:12px}
+.blocked-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.7}
 
-/* ПОЛЕ ВВОДУ */
-.input-field{
-  background:rgba(0,0,0,0.35);
-  border:1px solid rgba(201,168,76,0.18);
-  border-radius:14px;
-  padding:14px 16px;
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:12px;
-  transition:border-color .25s,box-shadow .25s;
-}
-.input-field:focus-within{
-  border-color:rgba(201,168,76,0.5);
-  box-shadow:0 0 16px rgba(201,168,76,0.1);
-}
-.input-icon{
-  width:32px;height:32px;
-  border:1px solid rgba(201,168,76,0.25);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  font-size:14px;
-  color:var(--gold);
-  background:rgba(201,168,76,0.06);
-}
+.form-card{margin:28px 20px 0;background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);border:1px solid var(--border);border-radius:20px;padding:26px 20px 22px;position:relative}
+.form-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
+.form-card::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--gold2);text-align:center;margin-bottom:20px}
+
+.input-field{background:rgba(0,0,0,0.35);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:12px;transition:border-color .25s,box-shadow .25s}
+.input-field:focus-within{border-color:rgba(201,168,76,0.5);box-shadow:0 0 16px rgba(201,168,76,0.1)}
+.input-icon{width:34px;height:34px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;color:var(--gold);background:rgba(201,168,76,0.06)}
 .input-body{flex:1;min-width:0}
-.input-label{
-  font-size:8px;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:4px;
-  display:block;
-}
-.input-body input{
-  width:100%;
-  background:none;border:none;outline:none;
-  color:var(--text);
-  font-family:'Montserrat',sans-serif;
-  font-size:14px;font-weight:300;
-  letter-spacing:.02em;
-  -webkit-appearance:none;
-}
-.input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:13px}
+.input-label{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;display:block}
+.input-body input{width:100%;background:none;border:none;outline:none;color:var(--text);font-family:'Montserrat',sans-serif;font-size:15px;font-weight:300;-webkit-appearance:none}
+.input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:14px}
 
-/* КНОПКА ОВАЛ */
-.btn-gold{
-  width:100%;margin-top:8px;
-  background:none;border:none;cursor:pointer;padding:0;
-}
-.btn-gold-inner{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:15px 28px;
-  background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);
-  border-radius:50px;
-  box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;
-  position:relative;overflow:hidden;
-  transition:transform .2s,box-shadow .2s;
-}
-.btn-gold-inner::before{
-  content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
-  transition:left .5s;
-}
+.btn-gold{width:100%;margin-top:8px;background:none;border:none;cursor:pointer;padding:0}
+.btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.btn-gold-inner::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
 .btn-gold:active .btn-gold-inner::before{left:150%}
-.btn-gold:active .btn-gold-inner{transform:translateY(1px);box-shadow:0 2px 12px rgba(201,168,76,0.2)}
+.btn-gold:active .btn-gold-inner{transform:translateY(1px)}
 .btn-gold-dot{width:4px;height:4px;background:#1A1000;border-radius:50%;opacity:.4}
-.btn-gold-text{font-size:9px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#1A1000}
+.btn-gold-text{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#1A1000}
+.btn-gold:disabled .btn-gold-inner{opacity:.6;cursor:not-allowed}
 
-/* РЕЗУЛЬТАТ */
+.btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0}
+.btn-outline-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;background:transparent;border:1px solid var(--gold);border-radius:50px;box-shadow:0 0 20px rgba(201,168,76,0.08);transition:all .3s;position:relative;overflow:hidden}
+.btn-outline-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);opacity:0;transition:opacity .3s}
+.btn-outline:active .btn-outline-inner::before{opacity:1}
+.btn-outline-text{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2)}
+
 .result{display:none;margin-top:24px}
 
-/* Число */
-.num-card{
-  margin:0 20px;
-  text-align:center;
-  padding:44px 24px 36px;
-  background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);
-  border:1px solid var(--border);
-  border-radius:20px;
-  position:relative;overflow:hidden;
-}
-.num-card::before{
-  content:'';position:absolute;top:0;left:20px;right:20px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent);
-}
-.num-aura{
-  position:absolute;top:45%;left:50%;
-  transform:translate(-50%,-50%);
-  width:180px;height:180px;
-  background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);
-  pointer-events:none;
-}
-.num-label{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.num-value{
-  font-family:'Cormorant Garamond',serif;
-  font-size:100px;font-weight:300;line-height:1;
-  background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));
-  margin-bottom:8px;position:relative;z-index:1;
-}
-.num-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:16px;font-style:italic;font-weight:300;
-  color:var(--text);
-}
+.num-card{margin:0 20px;text-align:center;padding:44px 24px 36px;background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);border:1px solid var(--border);border-radius:20px;position:relative;overflow:hidden}
+.num-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
+.num-aura{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);pointer-events:none}
+.num-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.num-value{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));margin-bottom:8px;position:relative;z-index:1}
+.num-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--text)}
+.num-person{font-size:13px;font-weight:400;color:var(--gold);letter-spacing:.05em;margin-top:8px;opacity:.8}
 
-/* Опис */
-.desc-card{
-  margin:12px 20px 0;
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:24px 20px;
-  background:linear-gradient(160deg,rgba(201,168,76,0.04),transparent);
-}
-.desc-keys{
-  font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:14px;text-align:center;
-}
-.desc-text{
-  font-family:'Cormorant Garamond',serif;
-  font-size:16px;font-weight:300;line-height:1.85;color:var(--text);margin-bottom:16px;
-}
-.tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-.tag{
-  padding:5px 14px;
-  border:1px solid rgba(201,168,76,0.25);
-  border-radius:50px;
-  font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--gold);font-weight:400;background:rgba(201,168,76,0.04);
-}
+.desc-card{margin:12px 20px 0;border:1px solid var(--border);border-radius:20px;padding:26px 22px;background:linear-gradient(160deg,rgba(201,168,76,0.04),transparent)}
+.desc-keys{font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
+.desc-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tag{padding:6px 16px;border:1px solid rgba(201,168,76,0.25);border-radius:50px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400;background:rgba(201,168,76,0.04)}
 
-/* Послання */
-.msg-card{
-  margin:12px 20px 0;
-  padding:22px 20px;
-  border-left:2px solid var(--gold);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  border-right:1px solid var(--border);
-  border-radius:0 16px 16px 0;
-  background:rgba(201,168,76,0.025);
-  position:relative;
-}
-.msg-card::before{
-  content:'"';
-  position:absolute;top:-14px;left:14px;
-  font-family:'Cormorant Garamond',serif;
-  font-size:64px;font-weight:300;
-  background:linear-gradient(180deg,var(--gold),transparent);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1;opacity:.5;
-}
-.msg-text{
-  font-family:'Cormorant Garamond',serif;
-  font-size:17px;font-style:italic;font-weight:300;line-height:1.75;color:var(--text);
-}
+.msg-card{margin:12px 20px 0;padding:24px 22px;border-left:2px solid var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1px solid var(--border);border-radius:0 16px 16px 0;background:rgba(201,168,76,0.025);position:relative}
+.msg-card::before{content:'"';position:absolute;top:-14px;left:14px;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;background:linear-gradient(180deg,var(--gold),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;opacity:.5}
+.msg-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;line-height:1.75;color:var(--text)}
 
-/* Розділювач */
 .sep{display:flex;align-items:center;gap:14px;padding:26px 20px}
 .sep-line{flex:1;height:1px;background:var(--border)}
 .sep-gem{display:flex;gap:6px;align-items:center}
 .sep-d{width:6px;height:6px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3));transform:rotate(45deg);box-shadow:0 0 8px rgba(201,168,76,0.5)}
 .sep-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.4}
 
-/* CTA */
-.cta-card{
-  margin:0 20px;
-  padding:30px 22px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  text-align:center;
-  background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);
-  position:relative;
-}
-.cta-card::before{
-  content:'';position:absolute;top:0;left:20px;right:20px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.cta-eye{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.cta-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:300;font-style:italic;
-  color:var(--text);line-height:1.4;margin-bottom:10px;
-}
-.cta-text{font-size:11px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:22px}
-
-.btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0}
-.btn-outline-inner{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:14px 28px;
-  background:transparent;
-  border:1px solid var(--gold);
-  border-radius:50px;
-  box-shadow:0 0 20px rgba(201,168,76,0.08);
-  transition:all .3s;position:relative;overflow:hidden;
-}
-.btn-outline-inner::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.btn-outline:active .btn-outline-inner::before{opacity:1}
-.btn-outline-text{font-size:9px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2)}
+.cta-card{margin:0 20px;padding:32px 24px;border:1px solid var(--border);border-radius:20px;text-align:center;background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);position:relative}
+.cta-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cta-eye{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--text);line-height:1.4;margin-bottom:10px}
+.cta-text{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.save-status{font-size:11px;color:var(--gold);text-align:center;margin-top:12px;min-height:16px;letter-spacing:.05em}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- HEADER -->
 <div class="header">
   <div class="brand">Вероніка Михайловська</div>
   <div class="star-wrap"><div class="star-gem"></div></div>
   <div class="h-sup">Цифровий код твоєї душі</div>
-  <div class="h-main">Твоє <em>число долі</em></div>
+  <div class="h-main">ТВОЄ <em>ЧИСЛО ДОЛІ</em></div>
   <div class="h-div">
     <div class="h-div-line"></div>
     <div class="h-div-dot"></div>
@@ -316,10 +116,14 @@ body::after{
   <div class="h-sub">Кожна цифра дати народження — це не випадковість. Це код, в якому закладена твоя місія, сила і шлях</div>
 </div>
 
-<!-- ФОРМА -->
-<div class="form-card">
-  <div class="form-title">Введи свої дані</div>
+<div class="blocked" id="blocked">
+  <div class="blocked-icon">◈</div>
+  <div class="blocked-title">Ти вже розкрила своє число сьогодні</div>
+  <div class="blocked-text">Енергія дня вже отримана. Повернись завтра — і відкрий число для когось близького або поглибся у своє.</div>
+</div>
 
+<div class="form-card" id="formCard">
+  <div class="form-title">Введи свої дані</div>
   <div class="input-field">
     <div class="input-icon">♡</div>
     <div class="input-body">
@@ -327,7 +131,6 @@ body::after{
       <input type="text" id="name" placeholder="Твоє ім'я">
     </div>
   </div>
-
   <div class="input-field">
     <div class="input-icon">◈</div>
     <div class="input-body">
@@ -335,32 +138,28 @@ body::after{
       <input type="text" id="birthdate" placeholder="дд.мм.рррр" maxlength="10">
     </div>
   </div>
-
   <button class="btn-gold" id="calcBtn" onclick="calculate()">
     <div class="btn-gold-inner">
       <div class="btn-gold-dot"></div>
-      <div class="btn-gold-text">Розкрити Число Долі</div>
+      <div class="btn-gold-text">Розкрити число долі</div>
       <div class="btn-gold-dot"></div>
     </div>
   </button>
 </div>
 
-<!-- РЕЗУЛЬТАТ -->
 <div class="result" id="result">
-
   <div class="num-card">
     <div class="num-aura"></div>
     <div class="num-label">ТВОЄ ЧИСЛО ДОЛІ</div>
     <div class="num-value" id="destNum">7</div>
     <div class="num-name" id="destName">Число Мудреця</div>
+    <div class="num-person" id="destPerson"></div>
   </div>
-
   <div class="desc-card">
     <div class="desc-keys" id="descKeys"></div>
     <div class="desc-text" id="descText"></div>
     <div class="tags" id="tags"></div>
   </div>
-
   <div class="msg-card">
     <div class="msg-text" id="msgText"></div>
   </div>
@@ -379,25 +178,53 @@ body::after{
     <div class="cta-eye">НАСТУПНИЙ КРОК</div>
     <div class="cta-title">Розпаковка дати народження</div>
     <div class="cta-text">Число долі — це лише перший шар. Повна розпаковка відкриває місію, таланти, програми обмежень і ключі до твого масштабу</div>
-    <button class="btn-outline" onclick="goConsult()">
-      <div class="btn-outline-inner">
-        <div class="btn-outline-text">Зберегти інформацію</div>
+
+    <button class="btn-gold" id="saveBtn" onclick="saveAndSend()">
+      <div class="btn-gold-inner">
+        <div class="btn-gold-dot"></div>
+        <div class="btn-gold-text">Зберегти інформацію</div>
+        <div class="btn-gold-dot"></div>
       </div>
     </button>
+
+    <div class="save-status" id="saveStatus"></div>
+
+    <div style="margin-top:12px">
+      <button class="btn-outline" onclick="goConsult()">
+        <div class="btn-outline-inner">
+          <div class="btn-outline-text">Хочу повну розпаковку</div>
+        </div>
+      </button>
+    </div>
   </div>
-
-</div>
 </div>
 
+</div>
 <script>
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbxKowb7dJuQHR0HkHoxBGg2bX3EqfbUdJZsEHGFgeeXpE70Noy-Sl2ZPW53_7wsOSUSCg/exec';
+var SCRIPT_URL='https://script.google.com/macros/s/AKfycbzRDZWhLLw3KGXuBFZhwcmSoiKMMjhECMwjAAw6g6ILgZ1-ACcAFo6m7hBTd3GEFQ1Naw/exec';
 var tg=window.Telegram&&window.Telegram.WebApp;
 if(tg)tg.expand();
 
-// Автоформат дати
+function checkLimit(){
+  try{
+    var today=new Date().toDateString();
+    var last=localStorage.getItem('numerology_last_date');
+    if(last===today){
+      document.getElementById('formCard').style.display='none';
+      document.getElementById('blocked').style.display='block';
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+function setLimit(){
+  try{localStorage.setItem('numerology_last_date',new Date().toDateString());}catch(e){}
+}
+checkLimit();
+
 document.getElementById('birthdate').addEventListener('input',function(e){
   var v=e.target.value.replace(/\D/g,'');
-  if(v.length>=3&&v.length<=4)v=v.slice(0,2)+'.'+v.slice(2);
+  if(v.length>2&&v.length<=4)v=v.slice(0,2)+'.'+v.slice(2);
   else if(v.length>4)v=v.slice(0,2)+'.'+v.slice(2,4)+'.'+v.slice(4,8);
   e.target.value=v;
 });
@@ -423,7 +250,10 @@ function reduce(n){
   return n;
 }
 
-async function calculate(){
+var calcData=null;
+
+function calculate(){
+  if(checkLimit())return;
   var name=document.getElementById('name').value.trim();
   var bd=document.getElementById('birthdate').value.trim();
   if(!name){alert('Введи своє ім\'я');return;}
@@ -439,36 +269,62 @@ async function calculate(){
   var num=reduce(sum);
   var data=N[num]||N[1];
 
+  var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
+
+  calcData={
+    birthday:bd,
+    name:name,
+    destiny_number:String(num),
+    destiny_name:data.name,
+    destiny_keys:data.keys,
+    destiny_text:data.text,
+    destiny_msg:data.msg,
+    destiny_tags:data.tags,
+    first_name:user.first_name||name,
+    username:user.username||'',
+    user_id:user.id?String(user.id):''
+  };
+
   document.getElementById('destNum').textContent=num;
   document.getElementById('destName').textContent=data.name;
+  document.getElementById('destPerson').textContent=name+' · '+bd;
   document.getElementById('descKeys').textContent=data.keys;
   document.getElementById('descText').textContent=data.text;
   document.getElementById('msgText').textContent=data.msg;
   document.getElementById('tags').innerHTML=data.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
 
-  var res=document.getElementById('result');
-  res.style.display='block';
-  setTimeout(function(){res.scrollIntoView({behavior:'smooth',block:'start'})},100);
+  setLimit();
+  document.getElementById('result').style.display='block';
+  setTimeout(function(){document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'})},100);
+}
 
-  var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
+async function saveAndSend(){
+  if(!calcData){return;}
+  var btn=document.getElementById('saveBtn');
+  var status=document.getElementById('saveStatus');
+  btn.disabled=true;
+  status.textContent='Зберігаємо...';
+
   try{
     await fetch(SCRIPT_URL,{
-      method:'POST',mode:'no-cors',
+      method:'POST',
+      mode:'no-cors',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        birthday:bd,name:name,
-        destiny_number:String(num),
-        first_name:user.first_name||name,
-        username:user.username||'',
-        user_id:user.id?String(user.id):''
-      })
+      body:JSON.stringify(calcData)
     });
-  }catch(e){}
+    status.textContent='✦ Збережено — результат надіслано в бот';
+    btn.style.display='none';
+  }catch(err){
+    status.textContent='Помилка. Спробуй ще раз.';
+    btn.disabled=false;
+  }
 }
 
 function goConsult(){
-  if(tg)tg.close();
-  else window.open('https://t.me/veronika_myhailovska','_blank');
+  var num=calcData?calcData.destiny_number:'';
+  var url='https://t.me/veronika_myhailovska_bot?start=rozpakova_'+num;
+  if(tg){tg.openTelegramLink(url);}
+  else{window.open(url,'_blank');}
 }
 </script>
 </body>
