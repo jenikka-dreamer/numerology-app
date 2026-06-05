@@ -16,6 +16,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-s
 body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 120% 60% at 50% -5%,rgba(201,168,76,0.1) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 90%,rgba(139,105,20,0.07) 0%,transparent 55%);pointer-events:none}
 body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark) 20%,var(--gold) 40%,var(--gold3) 50%,var(--gold) 60%,var(--gold-dark) 80%,transparent);z-index:100}
 .wrap{position:relative;z-index:1;padding-bottom:60px}
+
 .header{padding:50px 28px 32px;text-align:center}
 .brand{font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px}
 .star-wrap{margin:0 auto 18px;position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
@@ -23,6 +24,7 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .star-wrap::before{content:'';position:absolute;left:0;right:0;height:1px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .star-wrap::after{content:'';position:absolute;top:0;bottom:0;width:1px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
 .h-sup{font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+/* Виправлений заголовок — без капслоку */
 .h-main{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:18px}
 .h-main em{font-style:italic;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .h-div{display:flex;align-items:center;gap:10px;justify-content:center;max-width:180px;margin:0 auto 16px}
@@ -31,12 +33,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .h-div-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .h-div-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;box-shadow:0 0 6px var(--gold)}
 .h-sub{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;max-width:260px;margin:0 auto}
-
-.blocked{display:none;margin:32px 20px;background:linear-gradient(160deg,rgba(201,168,76,0.08),rgba(201,168,76,0.02));border:1px solid var(--border);border-radius:20px;padding:36px 24px;text-align:center;position:relative}
-.blocked::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.blocked-icon{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold);opacity:.5;margin-bottom:16px}
-.blocked-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;color:var(--gold2);margin-bottom:12px}
-.blocked-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.7}
 
 .form-card{margin:28px 20px 0;background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);border:1px solid var(--border);border-radius:20px;padding:26px 20px 22px;position:relative}
 .form-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
@@ -52,18 +48,17 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:14px}
 
 .btn-gold{width:100%;margin-top:8px;background:none;border:none;cursor:pointer;padding:0}
-.btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s}
 .btn-gold-inner::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
 .btn-gold:active .btn-gold-inner::before{left:150%}
 .btn-gold:active .btn-gold-inner{transform:translateY(1px)}
 .btn-gold-dot{width:4px;height:4px;background:#1A1000;border-radius:50%;opacity:.4}
 .btn-gold-text{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#1A1000}
-.btn-gold:disabled .btn-gold-inner{opacity:.6;cursor:not-allowed}
 
-.btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0}
-.btn-outline-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;background:transparent;border:1px solid var(--gold);border-radius:50px;box-shadow:0 0 20px rgba(201,168,76,0.08);transition:all .3s;position:relative;overflow:hidden}
+.btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0;margin-top:12px}
+.btn-outline-inner{display:flex;align-items:center;justify-content:center;padding:14px 28px;background:transparent;border:1px solid var(--gold);border-radius:50px;transition:all .3s}
 .btn-outline-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);opacity:0;transition:opacity .3s}
-.btn-outline:active .btn-outline-inner::before{opacity:1}
+.btn-outline:active .btn-outline-inner{background:rgba(201,168,76,0.08)}
 .btn-outline-text{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2)}
 
 .result{display:none;margin-top:24px}
@@ -71,7 +66,8 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .num-card{margin:0 20px;text-align:center;padding:44px 24px 36px;background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);border:1px solid var(--border);border-radius:20px;position:relative;overflow:hidden}
 .num-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
 .num-aura{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);pointer-events:none}
-.num-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+/* Виправлено — без text-transform:uppercase */
+.num-label{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-bottom:16px}
 .num-value{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));margin-bottom:8px;position:relative;z-index:1}
 .num-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--text)}
 .num-person{font-size:13px;font-weight:400;color:var(--gold);letter-spacing:.05em;margin-top:8px;opacity:.8}
@@ -107,19 +103,14 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
   <div class="brand">Вероніка Михайловська</div>
   <div class="star-wrap"><div class="star-gem"></div></div>
   <div class="h-sup">Цифровий код твоєї душі</div>
-  <div class="h-main">ТВОЄ <em>ЧИСЛО ДОЛІ</em></div>
+  <!-- Виправлено: з великої букви, без капслоку -->
+  <div class="h-main">Твоє <em>число долі</em></div>
   <div class="h-div">
     <div class="h-div-line"></div>
     <div class="h-div-dot"></div>
     <div class="h-div-line"></div>
   </div>
   <div class="h-sub">Кожна цифра дати народження — це не випадковість. Це код, в якому закладена твоя місія, сила і шлях</div>
-</div>
-
-<div class="blocked" id="blocked">
-  <div class="blocked-icon">◈</div>
-  <div class="blocked-title">Ти вже розкрила своє число сьогодні</div>
-  <div class="blocked-text">Енергія дня вже отримана. Повернись завтра — і відкрий число для когось близького або поглибся у своє.</div>
 </div>
 
 <div class="form-card" id="formCard">
@@ -138,7 +129,7 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
       <input type="text" id="birthdate" placeholder="дд.мм.рррр" maxlength="10">
     </div>
   </div>
-  <button class="btn-gold" id="calcBtn" onclick="calculate()">
+  <button class="btn-gold" onclick="calculate()">
     <div class="btn-gold-inner">
       <div class="btn-gold-dot"></div>
       <div class="btn-gold-text">Розкрити число долі</div>
@@ -150,7 +141,7 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 <div class="result" id="result">
   <div class="num-card">
     <div class="num-aura"></div>
-    <div class="num-label">ТВОЄ ЧИСЛО ДОЛІ</div>
+    <div class="num-label">Твоє число долі</div>
     <div class="num-value" id="destNum">7</div>
     <div class="num-name" id="destName">Число Мудреця</div>
     <div class="num-person" id="destPerson"></div>
@@ -175,10 +166,9 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
   </div>
 
   <div class="cta-card">
-    <div class="cta-eye">НАСТУПНИЙ КРОК</div>
+    <div class="cta-eye">Наступний крок</div>
     <div class="cta-title">Розпаковка дати народження</div>
     <div class="cta-text">Число долі — це лише перший шар. Повна розпаковка відкриває місію, таланти, програми обмежень і ключі до твого масштабу</div>
-
     <button class="btn-gold" id="saveBtn" onclick="saveAndSend()">
       <div class="btn-gold-inner">
         <div class="btn-gold-dot"></div>
@@ -186,41 +176,20 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
         <div class="btn-gold-dot"></div>
       </div>
     </button>
-
     <div class="save-status" id="saveStatus"></div>
-
-    <div style="margin-top:12px">
-      <button class="btn-outline" onclick="goConsult()">
-        <div class="btn-outline-inner">
-          <div class="btn-outline-text">Хочу повну розпаковку</div>
-        </div>
-      </button>
-    </div>
+    <button class="btn-outline" onclick="goConsult()">
+      <div class="btn-outline-inner">
+        <div class="btn-outline-text">Хочу повну розпаковку</div>
+      </div>
+    </button>
   </div>
 </div>
-
 </div>
+
 <script>
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbzb3YD4_cOPBncHThxZq5q_POV5rWcVqzmqlXKjRY-uiZ9sKf1X2aa5dU-mZPVw5g4HEA/exec';
+var SCRIPT_URL='https://script.google.com/macros/s/AKfycbybt6uZq4DhRFij4p0g8OkxbrhDdnjJCT7YVNB8Wtz3cZLqlIx4LZnA1O1P_4QqgLzl/exec';
 var tg=window.Telegram&&window.Telegram.WebApp;
 if(tg)tg.expand();
-
-function checkLimit(){
-  try{
-    var today=new Date().toDateString();
-    var last=localStorage.getItem('numerology_last_date');
-    if(last===today){
-      document.getElementById('formCard').style.display='none';
-      document.getElementById('blocked').style.display='block';
-      return true;
-    }
-  }catch(e){}
-  return false;
-}
-function setLimit(){
-  try{localStorage.setItem('numerology_last_date',new Date().toDateString());}catch(e){}
-}
-checkLimit();
 
 document.getElementById('birthdate').addEventListener('input',function(e){
   var v=e.target.value.replace(/\D/g,'');
@@ -253,7 +222,6 @@ function reduce(n){
 var calcData=null;
 
 function calculate(){
-  if(checkLimit())return;
   var name=document.getElementById('name').value.trim();
   var bd=document.getElementById('birthdate').value.trim();
   if(!name){alert('Введи своє ім\'я');return;}
@@ -268,12 +236,10 @@ function calculate(){
   (String(d)+String(m)+String(y)).split('').forEach(function(x){sum+=parseInt(x)});
   var num=reduce(sum);
   var data=N[num]||N[1];
-
   var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
 
   calcData={
-    birthday:bd,
-    name:name,
+    birthday:bd,name:name,
     destiny_number:String(num),
     destiny_name:data.name,
     destiny_keys:data.keys,
@@ -292,27 +258,23 @@ function calculate(){
   document.getElementById('descText').textContent=data.text;
   document.getElementById('msgText').textContent=data.msg;
   document.getElementById('tags').innerHTML=data.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
-
-  setLimit();
   document.getElementById('result').style.display='block';
   setTimeout(function(){document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'})},100);
 }
 
 async function saveAndSend(){
-  if(!calcData){return;}
+  if(!calcData)return;
   var btn=document.getElementById('saveBtn');
   var status=document.getElementById('saveStatus');
   btn.disabled=true;
   status.textContent='Зберігаємо...';
-
   try{
     await fetch(SCRIPT_URL,{
-      method:'POST',
-      mode:'no-cors',
+      method:'POST',mode:'no-cors',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(calcData)
     });
-    status.textContent='✦ Збережено — результат надіслано в бот';
+    status.textContent='✦ Збережено — картку надіслано в бот';
     btn.style.display='none';
   }catch(err){
     status.textContent='Помилка. Спробуй ще раз.';
