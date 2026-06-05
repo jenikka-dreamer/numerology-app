@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Число Долі — Вероніка Михайловська</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C96A;
+  --gold-dark:#8B6914;
+  --bg:#0A0806;
+  --bg2:#110E09;
+  --text:#F0E6D0;
+  --text-muted:#8A7A5A;
+  --border:rgba(201,168,76,0.2);
+}
+
+html,body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Raleway',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.wrap{position:relative;z-index:1;padding:0 0 48px}
+
+/* Хедер */
+.header{
+  text-align:center;
+  padding:48px 24px 32px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.header::after{
+  content:'';
+  position:absolute;
+  bottom:-1px;left:50%;transform:translateX(-50%);
+  width:60px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.header-eyebrow{
+  font-family:'Raleway',sans-serif;
+  font-size:10px;font-weight:500;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.header-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;
+  line-height:1.2;color:var(--text);
+  margin-bottom:8px;
+}
+.header-title em{font-style:italic;color:var(--gold-light)}
+.header-sub{
+  font-size:12px;font-weight:300;
+  color:var(--text-muted);line-height:1.6;
+  max-width:280px;margin:0 auto;
+}
+
+.content{padding:0 20px}
+
+/* Секції */
+.section-label{
+  font-size:9px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin:28px 0 12px;
+}
+
+/* Інпут дати */
+.date-card{
+  background:rgba(201,168,76,0.04);
+  border:1px solid var(--border);
+  border-radius:2px;
+  padding:20px;
+}
+.date-hint{
+  font-size:11px;color:var(--text-muted);
+  margin-bottom:14px;line-height:1.5;
+  font-style:italic;
+}
+.date-inputs{display:flex;gap:10px}
+.date-field{flex:1;text-align:center}
+.date-field label{
+  display:block;font-size:9px;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:6px;
+}
+.date-field input{
+  width:100%;
+  background:rgba(0,0,0,0.3);
+  border:1px solid rgba(201,168,76,0.25);
+  border-radius:1px;
+  padding:10px 8px;
+  text-align:center;
+  color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;
+  outline:none;
+  transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.date-field input:focus{border-color:var(--gold)}
+.date-field input::placeholder{color:rgba(201,168,76,0.2)}
+
+/* Кнопка */
+.calc-btn{
+  width:100%;margin-top:20px;
+  padding:14px;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-family:'Raleway',sans-serif;
+  font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:all .3s;
+}
+.calc-btn::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.1),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.calc-btn:active::before{opacity:1}
+
+/* Результат */
+.result{display:none;margin-top:24px}
+
+.number-display{
+  text-align:center;
+  padding:32px 20px;
+  background:rgba(201,168,76,0.04);
+  border:1px solid var(--border);
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+.number-display::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.number-display::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.number-eyebrow{
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:16px;
+}
+.number-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:88px;font-weight:300;
+  color:var(--gold-light);
+  line-height:1;
+  text-shadow:0 0 60px rgba(201,168,76,0.3);
+  margin-bottom:8px;
+}
+.number-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;font-style:italic;
+  color:var(--text);
+}
+
+/* Опис */
+.desc-card{
+  margin-top:16px;
+  background:rgba(201,168,76,0.03);
+  border:1px solid var(--border);
+  border-radius:2px;
+  padding:24px 20px;
+}
+.desc-keyword{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:400;
+  color:var(--gold);letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.desc-text{
+  font-size:13px;font-weight:300;
+  line-height:1.8;color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+}
+
+/* Якості */
+.qualities{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:16px;
+}
+.quality{
+  border:1px solid rgba(201,168,76,0.3);
+  padding:5px 12px;
+  font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:400;
+}
+
+/* Послання */
+.message-card{
+  margin-top:16px;
+  padding:20px;
+  border-left:1px solid var(--gold);
+  background:rgba(201,168,76,0.03);
+}
+.message-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-style:italic;font-weight:300;
+  line-height:1.7;color:var(--text);
+}
+
+/* CTA */
+.cta-card{
+  margin-top:24px;
+  text-align:center;
+  padding:28px 20px;
+  border:1px solid var(--border);
+  background:rgba(201,168,76,0.04);
+}
+.cta-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:300;
+  color:var(--text-muted);
+  line-height:1.7;margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-block;
+  padding:12px 32px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-family:'Raleway',sans-serif;
+  font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  cursor:pointer;background:transparent;
+  transition:all .3s;
+}
+.cta-btn:active{background:rgba(201,168,76,0.1)}
+
+.divider{
+  width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:24px auto;
+}
+
+.ornament{
+  text-align:center;
+  color:var(--gold);opacity:.4;
+  font-size:16px;letter-spacing:.5em;
+  margin:16px 0;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-eyebrow">Вероніка Михайловська</div>
+  <div class="header-title">Твоє <em>Число Долі</em></div>
+  <div class="header-sub">Цифровий код, закладений у дату твого народження. Він розкриває місію, шлях і внутрішню силу.</div>
+</div>
+
+<div class="content">
+
+  <div class="section-label">Введи дату народження</div>
+  <div class="date-card">
+    <div class="date-hint">Кожна цифра твоєї дати народження — це не випадковість. Це код.</div>
+    <div class="date-inputs">
+      <div class="date-field">
+        <label>День</label>
+        <input type="number" id="day" placeholder="DD" min="1" max="31">
+      </div>
+      <div class="date-field">
+        <label>Місяць</label>
+        <input type="number" id="month" placeholder="MM" min="1" max="12">
+      </div>
+      <div class="date-field">
+        <label>Рік</label>
+        <input type="number" id="year" placeholder="YYYY" min="1900" max="2024">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Розкрити число долі</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="ornament">· · ·</div>
+
+    <div class="number-display">
+      <div class="number-eyebrow">Твоє число долі</div>
+      <div class="number-big" id="destNum">7</div>
+      <div class="number-name" id="destName">Число Мудреця</div>
+    </div>
+
+    <div class="desc-card">
+      <div class="desc-keyword" id="descKeyword">Пізнання · Глибина · Істина</div>
+      <div class="desc-text" id="descText"></div>
+      <div class="qualities" id="qualities"></div>
+    </div>
+
+    <div class="message-card">
+      <div class="message-text" id="messageText"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="cta-card">
+      <div class="cta-text">Число долі — це лише перший шар. Повна розпаковка дати народження відкриває місію, таланти і програми, які тебе обмежують.</div>
+      <button class="cta-btn" onclick="goConsult()">Записатись на розпаковку</button>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script>
+var tg=window.Telegram&&window.Telegram.WebApp;
+if(tg)tg.expand();
+
+var NUMBERS={
+  1:{name:'Число Лідера',keyword:'Сила · Ініціатива · Творення',text:'Ти прийшла у цей світ творити нове. У тобі закладена сила першопрохідця — тієї, хто не йде слідом, а прокладає шлях. Твоя місія — проявляти себе повністю, без вибачень і без страху займати місце, яке призначено саме тобі.',qualities:['Лідерство','Незалежність','Творчість','Воля'],message:'Твоя сила — у сміливості бути першою. Там, де інші зупиняються, ти лише починаєш.'},
+  2:{name:'Число Гармонії',keyword:'Чуттєвість · Єднання · Мир',text:'Ти — майстер тонких енергій і невидимих зв\'язків. Твоя надсила у здатності відчувати те, що інші не бачать. Ти народжена будувати мости між людьми, між світами, між тим що є і тим що може бути.',qualities:['Інтуїція','Дипломатія','Чуттєвість','Партнерство'],message:'Твоя тиша сильніша за чужі слова. У твоїй присутності люди знаходять себе.'},
+  3:{name:'Число Творця',keyword:'Експресія · Радість · Магія слова',text:'Ти прийшла нести світло через творення і слово. Твій голос — інструмент трансформації. Коли ти говориш, пишеш, створюєш — ти активуєш у людях щось давно забуте. Це твій дар і твоя відповідальність.',qualities:['Творчість','Харизма','Натхнення','Комунікація'],message:'Кожне твоє слово — це код. Твори усвідомлено, і реальність відгукнеться.'},
+  4:{name:'Число Майстра',keyword:'Структура · Надійність · Будівництво',text:'Ти той фундамент, на якому тримається все справжнє. Твоя місія — будувати: системи, простір, реальність. Там, де інші бачать хаос, ти бачиш архітектуру. Твоя сила — у деталях і в довготривалому.',qualities:['Дисципліна','Надійність','Майстерність','Системність'],message:'Ти будуєш не просто плани — ти будуєш нову реальність. Крок за кроком, камінь за каменем.'},
+  5:{name:'Число Свободи',keyword:'Трансформація · Рух · Пробудження',text:'Ти народжена для змін і пробудження. Твоя енергія — це вітер, який не можна зупинити. Свобода для тебе — не примха, а базова потреба душі. Ти провісниця нового, і твій шлях завжди веде туди, де ще ніхто не був.',qualities:['Свобода','Адаптивність','Сміливість','Авантюризм'],message:'Твої зміни — не втеча. Це еволюція. Довіряй руху своєї душі.'},
+  6:{name:'Число Кохання',keyword:'Турбота · Краса · Гармонія',text:'Ти прийшла нести любов як вищу силу трансформації. Твоє серце — це портал. Через красу, через турботу, через вміння бачити найкраще в людях — ти змінюєш реальність навколо. Твоя місія — навчити світ коханню до себе.',qualities:['Любов','Краса','Відповідальність','Зцілення'],message:'Ти не просто любиш — ти активуєш любов у тих, хто вже забув як це.'},
+  7:{name:'Число Мудреця',keyword:'Пізнання · Глибина · Істина',text:'Ти несеш у собі архіви давньої мудрості. Твій шлях — це шлях усвідомлення, де кожне запитання важливіше за відповідь. Ти бачиш крізь поверхню у саму суть речей. Твоя місія — знаходити істину і ділитися нею з тими, хто готовий чути.',qualities:['Мудрість','Аналіз','Духовність','Інтроспекція'],message:'Твоя глибина — це не самотність. Це простір, де народжується справжнє знання.'},
+  8:{name:'Число Сили',keyword:'Влада · Достаток · Матеріалізація',text:'Ти прийшла опанувати мистецтво матеріалізації. Енергія, гроші, влада — для тебе це не табу, а інструменти служіння. Твоя місія — довести собі і світу, що духовність і достаток існують в єдності, а не в протиріччі.',qualities:['Влада','Достаток','Лідерство','Матеріалізація'],message:'Ти не просто заробляєш — ти матеріалізуєш нову реальність. Дозволь собі масштаб.'},
+  9:{name:'Число Мудреця Світу',keyword:'Завершення · Мудрість · Служіння',text:'Ти несеш у собі досвід усіх попередніх чисел. Твоя душа стара і мудра. Твоя місія — служіння через мудрість, через відпускання старого і народження нового. Ти тут не для себе — ти тут для трансформації колективного поля.',qualities:['Мудрість','Альтруїзм','Завершення','Трансформація'],message:'Ти завершуєш старі цикли не лише для себе — для всіх, хто поруч. Це твій найвищий дар.'},
+  11:{name:'Число Ченнелера',keyword:'Натхнення · Містичне · Провидіння',text:'11 — це число вищого плану. Ти — канал між світами, між тим що видно і тим що відчувається. Твоя інтуїція це не припущення — це прямий зв\'язок з полем. Твоя місія надихати, пробуджувати, нести світло туди, де темно.',qualities:['Інтуїція','Натхнення','Провидіння','Місток між світами'],message:'Ти не придумуєш — ти отримуєш. Довіряй тому, що приходить через тебе.'},
+  22:{name:'Число Майстра Будівника',keyword:'Масштаб · Матеріалізація мрій · Архітектор реальності',text:'22 — найпотужніше число в нумерології. Ти прийшла будувати те, що змінить світ. Твої мрії — це не фантазії, це плани Всесвіту. Тобі дано надздібності перетворювати найвищі ідеї у реальні форми.',qualities:['Масштабне мислення','Майстерність','Матеріалізація','Лідерство'],message:'Ти будуєш не для себе — ты будуєш для майбутнього. Мисли масштабно. Дій зараз.'},
+  33:{name:'Число Вчителя',keyword:'Любов · Зцілення · Вище служіння',text:'33 — число Вчителя, який зцілює любов\'ю. Ти прийшла нести найвищу форму служіння через безумовну любов і мудрість. Твоя присутність сама по собі є зціленням. Ти тут щоб нагадати людству про його справжню природу.',qualities:['Безумовна любов','Зцілення','Мудрість','Натхнення'],message:'Ти вчиш не словами — ти вчиш своїм буттям. Кожен, хто зустрічає тебе, змінюється.'},
+};
+
+function reduceNum(n){
+  if(n===11||n===22||n===33)return n;
+  if(n>9){var s=0;String(n).split('').forEach(function(d){s+=parseInt(d)});return reduceNum(s);}
+  return n;
+}
+
+function calculate(){
+  var d=parseInt(document.getElementById('day').value);
+  var m=parseInt(document.getElementById('month').value);
+  var y=parseInt(document.getElementById('year').value);
+  if(!d||!m||!y||d<1||d>31||m<1||m>12||y<1900||y>2024){
+    alert('Введіть коректну дату народження');return;
+  }
+  var sum=0;
+  String(d).split('').forEach(function(x){sum+=parseInt(x)});
+  String(m).split('').forEach(function(x){sum+=parseInt(x)});
+  String(y).split('').forEach(function(x){sum+=parseInt(x)});
+  var num=reduceNum(sum);
+  var data=NUMBERS[num]||NUMBERS[1];
+
+  document.getElementById('destNum').textContent=num;
+  document.getElementById('destName').textContent=data.name;
+  document.getElementById('descKeyword').textContent=data.keyword;
+  document.getElementById('descText').textContent=data.text;
+  document.getElementById('messageText').textContent=data.message;
+
+  var qEl=document.getElementById('qualities');
+  qEl.innerHTML=data.qualities.map(function(q){return'<div class="quality">'+q+'</div>'}).join('');
+
+  var res=document.getElementById('result');
+  res.style.display='block';
+  setTimeout(function(){res.scrollIntoView({behavior:'smooth',block:'start'})},100);
+}
+
+function goConsult(){
+  if(tg)tg.close();
+  else window.open('https://t.me/veronika_myhailovska','_blank');
+}
+</script>
+</body>
+</html>
