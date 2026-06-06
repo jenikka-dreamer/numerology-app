@@ -8,15 +8,11 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gold:#C9A84C;--gold2:#E8D5A3;--gold3:#F5E8C0;--gold-dark:#8B6914;
-  --bg:#060402;--text:#F5EDD8;--muted:#8A7A5A;--border:rgba(201,168,76,0.2);
-}
+:root{--gold:#C9A84C;--gold2:#E8D5A3;--gold3:#F5E8C0;--gold-dark:#8B6914;--bg:#060402;--text:#F5EDD8;--muted:#8A7A5A;--border:rgba(201,168,76,0.2)}
 html,body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 120% 60% at 50% -5%,rgba(201,168,76,0.1) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 90%,rgba(139,105,20,0.07) 0%,transparent 55%);pointer-events:none}
 body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark) 20%,var(--gold) 40%,var(--gold3) 50%,var(--gold) 60%,var(--gold-dark) 80%,transparent);z-index:100}
 .wrap{position:relative;z-index:1;padding-bottom:60px}
-
 .header{padding:50px 28px 32px;text-align:center}
 .brand{font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px}
 .star-wrap{margin:0 auto 18px;position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
@@ -24,7 +20,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .star-wrap::before{content:'';position:absolute;left:0;right:0;height:1px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .star-wrap::after{content:'';position:absolute;top:0;bottom:0;width:1px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
 .h-sup{font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-/* Виправлений заголовок — без капслоку */
 .h-main{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:18px}
 .h-main em{font-style:italic;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .h-div{display:flex;align-items:center;gap:10px;justify-content:center;max-width:180px;margin:0 auto 16px}
@@ -33,12 +28,10 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .h-div-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .h-div-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;box-shadow:0 0 6px var(--gold)}
 .h-sub{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;max-width:260px;margin:0 auto}
-
 .form-card{margin:28px 20px 0;background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);border:1px solid var(--border);border-radius:20px;padding:26px 20px 22px;position:relative}
 .form-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
 .form-card::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .form-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--gold2);text-align:center;margin-bottom:20px}
-
 .input-field{background:rgba(0,0,0,0.35);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:12px;transition:border-color .25s,box-shadow .25s}
 .input-field:focus-within{border-color:rgba(201,168,76,0.5);box-shadow:0 0 16px rgba(201,168,76,0.1)}
 .input-icon{width:34px;height:34px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;color:var(--gold);background:rgba(201,168,76,0.06)}
@@ -46,7 +39,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .input-label{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;display:block}
 .input-body input{width:100%;background:none;border:none;outline:none;color:var(--text);font-family:'Montserrat',sans-serif;font-size:15px;font-weight:300;-webkit-appearance:none}
 .input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:14px}
-
 .btn-gold{width:100%;margin-top:8px;background:none;border:none;cursor:pointer;padding:0}
 .btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s}
 .btn-gold-inner::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
@@ -54,40 +46,31 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 .btn-gold:active .btn-gold-inner{transform:translateY(1px)}
 .btn-gold-dot{width:4px;height:4px;background:#1A1000;border-radius:50%;opacity:.4}
 .btn-gold-text{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#1A1000}
-
 .btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0;margin-top:12px}
 .btn-outline-inner{display:flex;align-items:center;justify-content:center;padding:14px 28px;background:transparent;border:1px solid var(--gold);border-radius:50px;transition:all .3s}
-.btn-outline-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.08),transparent);opacity:0;transition:opacity .3s}
 .btn-outline:active .btn-outline-inner{background:rgba(201,168,76,0.08)}
 .btn-outline-text{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2)}
-
 .result{display:none;margin-top:24px}
-
 .num-card{margin:0 20px;text-align:center;padding:44px 24px 36px;background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);border:1px solid var(--border);border-radius:20px;position:relative;overflow:hidden}
 .num-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
 .num-aura{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);pointer-events:none}
-/* Виправлено — без text-transform:uppercase */
 .num-label{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-bottom:16px}
 .num-value{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));margin-bottom:8px;position:relative;z-index:1}
 .num-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--text)}
 .num-person{font-size:13px;font-weight:400;color:var(--gold);letter-spacing:.05em;margin-top:8px;opacity:.8}
-
 .desc-card{margin:12px 20px 0;border:1px solid var(--border);border-radius:20px;padding:26px 22px;background:linear-gradient(160deg,rgba(201,168,76,0.04),transparent)}
 .desc-keys{font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
 .desc-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:18px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .tag{padding:6px 16px;border:1px solid rgba(201,168,76,0.25);border-radius:50px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400;background:rgba(201,168,76,0.04)}
-
 .msg-card{margin:12px 20px 0;padding:24px 22px;border-left:2px solid var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1px solid var(--border);border-radius:0 16px 16px 0;background:rgba(201,168,76,0.025);position:relative}
 .msg-card::before{content:'"';position:absolute;top:-14px;left:14px;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;background:linear-gradient(180deg,var(--gold),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;opacity:.5}
 .msg-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;line-height:1.75;color:var(--text)}
-
 .sep{display:flex;align-items:center;gap:14px;padding:26px 20px}
 .sep-line{flex:1;height:1px;background:var(--border)}
 .sep-gem{display:flex;gap:6px;align-items:center}
 .sep-d{width:6px;height:6px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3));transform:rotate(45deg);box-shadow:0 0 8px rgba(201,168,76,0.5)}
 .sep-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.4}
-
 .cta-card{margin:0 20px;padding:32px 24px;border:1px solid var(--border);border-radius:20px;text-align:center;background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);position:relative}
 .cta-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .cta-eye{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
@@ -98,21 +81,14 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
 </head>
 <body>
 <div class="wrap">
-
 <div class="header">
   <div class="brand">Вероніка Михайловська</div>
   <div class="star-wrap"><div class="star-gem"></div></div>
   <div class="h-sup">Цифровий код твоєї душі</div>
-  <!-- Виправлено: з великої букви, без капслоку -->
   <div class="h-main">Твоє <em>число долі</em></div>
-  <div class="h-div">
-    <div class="h-div-line"></div>
-    <div class="h-div-dot"></div>
-    <div class="h-div-line"></div>
-  </div>
+  <div class="h-div"><div class="h-div-line"></div><div class="h-div-dot"></div><div class="h-div-line"></div></div>
   <div class="h-sub">Кожна цифра дати народження — це не випадковість. Це код, в якому закладена твоя місія, сила і шлях</div>
 </div>
-
 <div class="form-card" id="formCard">
   <div class="form-title">Введи свої дані</div>
   <div class="input-field">
@@ -137,13 +113,12 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
     </div>
   </button>
 </div>
-
 <div class="result" id="result">
   <div class="num-card">
     <div class="num-aura"></div>
     <div class="num-label">Твоє число долі</div>
     <div class="num-value" id="destNum">7</div>
-    <div class="num-name" id="destName">Число Мудреця</div>
+    <div class="num-name" id="destName"></div>
     <div class="num-person" id="destPerson"></div>
   </div>
   <div class="desc-card">
@@ -154,17 +129,11 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
   <div class="msg-card">
     <div class="msg-text" id="msgText"></div>
   </div>
-
   <div class="sep">
     <div class="sep-line"></div>
-    <div class="sep-gem">
-      <div class="sep-dot"></div>
-      <div class="sep-d"></div>
-      <div class="sep-dot"></div>
-    </div>
+    <div class="sep-gem"><div class="sep-dot"></div><div class="sep-d"></div><div class="sep-dot"></div></div>
     <div class="sep-line"></div>
   </div>
-
   <div class="cta-card">
     <div class="cta-eye">Наступний крок</div>
     <div class="cta-title">Розпаковка дати народження</div>
@@ -175,19 +144,11 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
         <div class="btn-gold-text">Зберегти інформацію</div>
         <div class="btn-gold-dot"></div>
       </div>
-    </button>
-    <div class="save-status" id="saveStatus"></div>
-    <button class="btn-outline" onclick="goConsult()">
-      <div class="btn-outline-inner">
-        <div class="btn-outline-text">Хочу повну розпаковку</div>
-      </div>
-    </button>
   </div>
 </div>
 </div>
-
 <script>
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbx0e_mqgsnShtbyO20uK8vkArJYPhTD2PvlNSGxhbJyUtnNmthVcODxkXNIG6HHDUkbHA/exec';
+var SCRIPT_URL='https://script.google.com/macros/s/AKfycbz8G6f6Bqs43QgKJJw9GRHGs5tb7ObCaA6wGobDBavtMfOGlEbrhYMvC1Z3wLME_f_jBA/exec';
 var tg=window.Telegram&&window.Telegram.WebApp;
 if(tg)tg.expand();
 
@@ -229,15 +190,12 @@ function calculate(){
   var parts=bd.split('.');
   if(parts.length!==3){alert('Введи дату у форматі дд.мм.рррр');return;}
   var d=parseInt(parts[0]),m=parseInt(parts[1]),y=parseInt(parts[2]);
-  if(!d||!m||!y||d<1||d>31||m<1||m>12||y<1900||y>2024){
-    alert('Введи коректну дату народження');return;
-  }
+  if(!d||!m||!y||d<1||d>31||m<1||m>12||y<1900||y>2024){alert('Введи коректну дату народження');return;}
   var sum=0;
   (String(d)+String(m)+String(y)).split('').forEach(function(x){sum+=parseInt(x)});
   var num=reduce(sum);
   var data=N[num]||N[1];
   var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
-
   calcData={
     birthday:bd,name:name,
     destiny_number:String(num),
@@ -250,7 +208,6 @@ function calculate(){
     username:user.username||'',
     user_id:user.id?String(user.id):''
   };
-
   document.getElementById('destNum').textContent=num;
   document.getElementById('destName').textContent=data.name;
   document.getElementById('destPerson').textContent=name+' · '+bd;
@@ -268,27 +225,14 @@ async function saveAndSend(){
   var status=document.getElementById('saveStatus');
   btn.disabled=true;
   status.textContent='Зберігаємо...';
-  var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
   try{
     await fetch(SCRIPT_URL,{
       method:'POST',
       mode:'no-cors',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        user_id:user.id?String(user.id):'невідомо',
-        first_name:user.first_name||calcData.name,
-        username:user.username||'',
-        birthday:calcData.birthday,
-        name:calcData.name,
-        destiny_number:calcData.destiny_number,
-        destiny_name:calcData.destiny_name,
-        destiny_keys:calcData.destiny_keys,
-        destiny_text:calcData.destiny_text,
-        destiny_msg:calcData.destiny_msg,
-        destiny_tags:calcData.destiny_tags
-      })
+      body:JSON.stringify(calcData)
     });
-    status.textContent='✦ Збережено — картку надіслано в бот';
+    status.textContent='✦ Збережено — результат надіслано в бот';
     btn.style.display='none';
   }catch(err){
     status.textContent='Помилка. Спробуй ще раз.';
