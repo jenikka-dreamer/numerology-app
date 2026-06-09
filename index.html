@@ -13,83 +13,110 @@ html,body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-s
 body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 120% 60% at 50% -5%,rgba(201,168,76,0.1) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 90%,rgba(139,105,20,0.07) 0%,transparent 55%);pointer-events:none}
 body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark) 20%,var(--gold) 40%,var(--gold3) 50%,var(--gold) 60%,var(--gold-dark) 80%,transparent);z-index:100}
 .wrap{position:relative;z-index:1;padding-bottom:60px}
-.header{padding:50px 28px 32px;text-align:center}
-.brand{font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:24px}
-.star-wrap{margin:0 auto 18px;position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
-.star-gem{width:10px;height:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));transform:rotate(45deg);box-shadow:0 0 16px rgba(201,168,76,0.7),0 0 32px rgba(201,168,76,0.3)}
+.header{padding:40px 28px 24px;text-align:center}
+.brand{font-size:9px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:20px}
+.star-wrap{margin:0 auto 14px;position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.star-gem{width:10px;height:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));transform:rotate(45deg);box-shadow:0 0 16px rgba(201,168,76,0.7)}
 .star-wrap::before{content:'';position:absolute;left:0;right:0;height:1px;top:50%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .star-wrap::after{content:'';position:absolute;top:0;bottom:0;width:1px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
-.h-sup{font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.h-main{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:18px}
+.h-sup{font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.h-main{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--text);line-height:1.1;margin-bottom:14px}
 .h-main em{font-style:italic;background:linear-gradient(135deg,var(--gold-dark),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.h-div{display:flex;align-items:center;gap:10px;justify-content:center;max-width:180px;margin:0 auto 16px}
+.h-div{display:flex;align-items:center;gap:10px;justify-content:center;max-width:180px;margin:0 auto 12px}
 .h-div-line{flex:1;height:1px}
 .h-div-line:first-child{background:linear-gradient(90deg,transparent,var(--gold))}
 .h-div-line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .h-div-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;box-shadow:0 0 6px var(--gold)}
 .h-sub{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;max-width:260px;margin:0 auto}
-.form-card{margin:28px 20px 0;background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);border:1px solid var(--border);border-radius:20px;padding:26px 20px 22px;position:relative}
+
+/* Форма */
+.form-card{margin:24px 20px 0;background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);border:1px solid var(--border);border-radius:20px;padding:24px 20px 20px;position:relative}
 .form-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
 .form-card::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--gold2);text-align:center;margin-bottom:20px}
-.input-field{background:rgba(0,0,0,0.35);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:12px;transition:border-color .25s,box-shadow .25s}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;font-weight:300;color:var(--gold2);text-align:center;margin-bottom:18px}
+.input-field{background:rgba(0,0,0,0.35);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:13px 16px;display:flex;align-items:center;gap:12px;margin-bottom:10px;transition:border-color .25s,box-shadow .25s}
 .input-field:focus-within{border-color:rgba(201,168,76,0.5);box-shadow:0 0 16px rgba(201,168,76,0.1)}
-.input-icon{width:34px;height:34px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;color:var(--gold);background:rgba(201,168,76,0.06)}
+.input-icon{width:32px;height:32px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--gold);background:rgba(201,168,76,0.06)}
 .input-body{flex:1;min-width:0}
-.input-label{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;display:block}
+.input-label{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block}
 .input-body input{width:100%;background:none;border:none;outline:none;color:var(--text);font-family:'Montserrat',sans-serif;font-size:15px;font-weight:300;-webkit-appearance:none}
-.input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:14px}
+.input-body input::placeholder{color:rgba(201,168,76,0.3);font-size:13px}
+
+/* Кнопки */
 .btn-gold{width:100%;margin-top:8px;background:none;border:none;cursor:pointer;padding:0}
-.btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s}
+.btn-gold-inner{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;background:linear-gradient(135deg,var(--gold-dark) 0%,var(--gold) 35%,var(--gold3) 55%,var(--gold) 75%,var(--gold-dark) 100%);border-radius:50px;box-shadow:0 4px 20px rgba(201,168,76,0.3),0 1px 0 rgba(245,232,192,0.4) inset,0 -1px 0 rgba(139,105,20,0.5) inset;position:relative;overflow:hidden;transition:transform .2s}
 .btn-gold-inner::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
 .btn-gold:active .btn-gold-inner::before{left:150%}
 .btn-gold:active .btn-gold-inner{transform:translateY(1px)}
 .btn-gold-dot{width:4px;height:4px;background:#1A1000;border-radius:50%;opacity:.4}
 .btn-gold-text{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#1A1000}
-.btn-outline{width:100%;background:none;border:none;cursor:pointer;padding:0;margin-top:12px}
-.btn-outline-inner{display:flex;align-items:center;justify-content:center;padding:14px 28px;background:transparent;border:1px solid var(--gold);border-radius:50px;transition:all .3s}
-.btn-outline:active .btn-outline-inner{background:rgba(201,168,76,0.08)}
-.btn-outline-text{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2)}
+
+/* Результат */
 .result{display:none;margin-top:24px}
-.num-card{margin:0 20px;text-align:center;padding:44px 24px 36px;background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);border:1px solid var(--border);border-radius:20px;position:relative;overflow:hidden}
+
+/* Вкладки */
+.tabs{display:flex;gap:8px;margin:0 20px 20px;padding:6px;background:rgba(0,0,0,0.3);border-radius:50px;border:1px solid var(--border)}
+.tab{flex:1;padding:10px 8px;border:none;background:transparent;border-radius:50px;cursor:pointer;transition:all .25s;text-align:center}
+.tab.active{background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold3),var(--gold));box-shadow:0 2px 12px rgba(201,168,76,0.3)}
+.tab-icon{font-size:16px;display:block;margin-bottom:3px}
+.tab-text{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.tab.active .tab-text{color:#1A1000}
+
+/* Панелі вкладок */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Картка числа */
+.num-card{margin:0 20px;text-align:center;padding:40px 24px 32px;background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 70%,transparent 100%);border:1px solid var(--border);border-radius:20px;position:relative;overflow:hidden}
 .num-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),var(--gold3),var(--gold2),transparent)}
-.num-aura{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);pointer-events:none}
-.num-label{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-bottom:16px}
-.num-value{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;line-height:1;background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));margin-bottom:8px;position:relative;z-index:1}
-.num-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--text)}
-.num-person{font-size:13px;font-weight:400;color:var(--gold);letter-spacing:.05em;margin-top:8px;opacity:.8}
-.desc-card{margin:12px 20px 0;border:1px solid var(--border);border-radius:20px;padding:26px 22px;background:linear-gradient(160deg,rgba(201,168,76,0.04),transparent)}
-.desc-keys{font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
-.desc-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;line-height:1.9;color:var(--text);margin-bottom:18px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.tag{padding:6px 16px;border:1px solid rgba(201,168,76,0.25);border-radius:50px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400;background:rgba(201,168,76,0.04)}
-.msg-card{margin:12px 20px 0;padding:24px 22px;border-left:2px solid var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1px solid var(--border);border-radius:0 16px 16px 0;background:rgba(201,168,76,0.025);position:relative}
-.msg-card::before{content:'"';position:absolute;top:-14px;left:14px;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;background:linear-gradient(180deg,var(--gold),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;opacity:.5}
-.msg-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;line-height:1.75;color:var(--text)}
-.sep{display:flex;align-items:center;gap:14px;padding:26px 20px}
+.num-aura{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 50%,transparent 70%);pointer-events:none}
+.num-label{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-bottom:14px}
+.num-value{font-family:'Cormorant Garamond',serif;font-size:90px;font-weight:300;line-height:1;background:linear-gradient(180deg,var(--gold3) 0%,var(--gold) 50%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));margin-bottom:8px;position:relative;z-index:1}
+.num-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;font-weight:300;color:var(--text)}
+.num-person{font-size:12px;color:var(--gold);margin-top:6px;opacity:.8}
+
+.desc-card{margin:10px 20px 0;border:1px solid var(--border);border-radius:20px;padding:22px 20px;background:linear-gradient(160deg,rgba(201,168,76,0.04),transparent)}
+.desc-keys{font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center}
+.desc-text{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;line-height:1.85;color:var(--text);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.tag{padding:5px 14px;border:1px solid rgba(201,168,76,0.25);border-radius:50px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.04)}
+
+.msg-card{margin:10px 20px 0;padding:20px;border-left:2px solid var(--gold);border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1px solid var(--border);border-radius:0 16px 16px 0;background:rgba(201,168,76,0.025);position:relative}
+.msg-card::before{content:'"';position:absolute;top:-12px;left:12px;font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;background:linear-gradient(180deg,var(--gold),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;opacity:.5}
+.msg-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;font-weight:300;line-height:1.75;color:var(--text)}
+
+/* Підказка перейти */
+.next-hint{margin:10px 20px 0;padding:14px 18px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);border-radius:14px;text-align:center}
+.next-hint-text{font-size:12px;font-weight:300;color:var(--muted);line-height:1.5}
+.next-hint em{color:var(--gold);font-style:normal}
+
+.sep{display:flex;align-items:center;gap:14px;padding:22px 20px}
 .sep-line{flex:1;height:1px;background:var(--border)}
 .sep-gem{display:flex;gap:6px;align-items:center}
 .sep-d{width:6px;height:6px;background:linear-gradient(135deg,var(--gold-dark),var(--gold3));transform:rotate(45deg);box-shadow:0 0 8px rgba(201,168,76,0.5)}
 .sep-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:.4}
-.cta-card{margin:0 20px;padding:32px 24px;border:1px solid var(--border);border-radius:20px;text-align:center;background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);position:relative}
+
+.cta-card{margin:0 20px;padding:28px 22px;border:1px solid var(--border);border-radius:20px;text-align:center;background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 60%,transparent 100%);position:relative}
 .cta-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.cta-eye{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;color:var(--text);line-height:1.4;margin-bottom:10px}
-.cta-text{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:20px}
-.save-status{font-size:11px;color:var(--gold);text-align:center;margin-top:12px;min-height:16px;letter-spacing:.05em}
+.cta-eye{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--text);line-height:1.4;margin-bottom:8px}
+.cta-text{font-size:12px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.save-status{font-size:11px;color:var(--gold);text-align:center;margin-top:10px;min-height:16px}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <div class="header">
   <div class="brand">Вероніка Михайловська</div>
   <div class="star-wrap"><div class="star-gem"></div></div>
   <div class="h-sup">Цифровий код твоєї душі</div>
-  <div class="h-main">Твій <em>код долі</em></div>
+  <div class="h-main">Твій <em>числовий код</em></div>
   <div class="h-div"><div class="h-div-line"></div><div class="h-div-dot"></div><div class="h-div-line"></div></div>
   <div class="h-sub">Кожна цифра дати народження — це не випадковість. Це код, в якому закладена твоя місія, сила і шлях</div>
 </div>
-<div class="form-card" id="formCard">
+
+<div class="form-card">
   <div class="form-title">Введи свої дані</div>
   <div class="input-field">
     <div class="input-icon">♡</div>
@@ -108,36 +135,103 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
   <button class="btn-gold" onclick="calculate()">
     <div class="btn-gold-inner">
       <div class="btn-gold-dot"></div>
-      <div class="btn-gold-text">Розкрити код долі</div>
+      <div class="btn-gold-text">Розкрити коди</div>
       <div class="btn-gold-dot"></div>
     </div>
   </button>
 </div>
+
 <div class="result" id="result">
-  <div class="num-card">
-    <div class="num-aura"></div>
-    <div class="num-label">Твій код долі</div>
-    <div class="num-value" id="destNum">7</div>
-    <div class="num-name" id="destName"></div>
-    <div class="num-person" id="destPerson"></div>
+
+  <!-- Вкладки -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('destiny')">
+      <span class="tab-icon">🔮</span>
+      <span class="tab-text">Код долі</span>
+    </button>
+    <button class="tab" onclick="switchTab('money')">
+      <span class="tab-icon">💰</span>
+      <span class="tab-text">Код грошей</span>
+    </button>
+    <button class="tab" onclick="switchTab('luck')">
+      <span class="tab-icon">🍀</span>
+      <span class="tab-text">Код удачі</span>
+    </button>
   </div>
-  <div class="desc-card">
-    <div class="desc-keys" id="descKeys"></div>
-    <div class="desc-text" id="descText"></div>
-    <div class="tags" id="tags"></div>
+
+  <!-- Код долі -->
+  <div class="tab-panel active" id="panel-destiny">
+    <div class="num-card">
+      <div class="num-aura"></div>
+      <div class="num-label">Твоє число долі</div>
+      <div class="num-value" id="destNum"></div>
+      <div class="num-name" id="destName"></div>
+      <div class="num-person" id="destPerson"></div>
+    </div>
+    <div class="desc-card">
+      <div class="desc-keys" id="destKeys"></div>
+      <div class="desc-text" id="destText"></div>
+      <div class="tags" id="destTags"></div>
+    </div>
+    <div class="msg-card">
+      <div class="msg-text" id="destMsg"></div>
+    </div>
+    <div class="next-hint">
+      <div class="next-hint-text">Дізнайся також свій <em>Код Грошей</em> і <em>Код Удачі</em> — натисни на вкладки вгорі</div>
+    </div>
   </div>
-  <div class="msg-card">
-    <div class="msg-text" id="msgText"></div>
+
+  <!-- Код грошей -->
+  <div class="tab-panel" id="panel-money">
+    <div class="num-card">
+      <div class="num-aura"></div>
+      <div class="num-label">Твій код грошей</div>
+      <div class="num-value" id="moneyNum"></div>
+      <div class="num-name" id="moneyName"></div>
+      <div class="num-person" id="moneyPerson"></div>
+    </div>
+    <div class="desc-card">
+      <div class="desc-keys" id="moneyKeys"></div>
+      <div class="desc-text" id="moneyText"></div>
+      <div class="tags" id="moneyTags"></div>
+    </div>
+    <div class="msg-card">
+      <div class="msg-text" id="moneyMsg"></div>
+    </div>
+    <div class="next-hint">
+      <div class="next-hint-text">Перейди до <em>Коду Удачі</em> — він відкриє твої природні потоки везіння</div>
+    </div>
   </div>
+
+  <!-- Код удачі -->
+  <div class="tab-panel" id="panel-luck">
+    <div class="num-card">
+      <div class="num-aura"></div>
+      <div class="num-label">Твій код удачі</div>
+      <div class="num-value" id="luckNum"></div>
+      <div class="num-name" id="luckName"></div>
+      <div class="num-person" id="luckPerson"></div>
+    </div>
+    <div class="desc-card">
+      <div class="desc-keys" id="luckKeys"></div>
+      <div class="desc-text" id="luckText"></div>
+      <div class="tags" id="luckTags"></div>
+    </div>
+    <div class="msg-card">
+      <div class="msg-text" id="luckMsg"></div>
+    </div>
+  </div>
+
   <div class="sep">
     <div class="sep-line"></div>
     <div class="sep-gem"><div class="sep-dot"></div><div class="sep-d"></div><div class="sep-dot"></div></div>
     <div class="sep-line"></div>
   </div>
+
   <div class="cta-card">
     <div class="cta-eye">Наступний крок</div>
-    <div class="cta-title">Розпаковка</div>
-    <div class="cta-text">Число долі — це лише перший шар. Повна розпаковка відкриває місію, таланти, програми обмежень і ключі до твого масштабу</div>
+    <div class="cta-title">Розпаковка дати народження</div>
+    <div class="cta-text">Три коди — це лише початок. Повна розпаковка відкриває місію, таланти і програми обмежень</div>
     <button class="btn-gold" id="saveBtn" onclick="saveAndSend()">
       <div class="btn-gold-inner">
         <div class="btn-gold-dot"></div>
@@ -146,12 +240,13 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;height:2px;background
       </div>
     </button>
     <div class="save-status" id="saveStatus"></div>
-
   </div>
+
 </div>
 </div>
+
 <script>
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbyoS6U6KE6kXwqZ56JQeTKRKwv5rg-9hwm3cTLPjtiCeioopA5hQG2r2sZEseah2WqO/exec';
+var SCRIPT_URL='https://script.google.com/macros/s/AKfycby5UopLOQATrfKCAbpKouA45dGC5AEwOtc5xu68X_kiwai1hf6vBO7kQw7bmDP03g_w/exec';
 var tg=window.Telegram&&window.Telegram.WebApp;
 if(tg)tg.expand();
 
@@ -162,24 +257,62 @@ document.getElementById('birthdate').addEventListener('input',function(e){
   e.target.value=v;
 });
 
-var N={
+// Числа долі
+var DESTINY={
   1:{name:'Число Лідера',keys:'СИЛА · ІНІЦІАТИВА · ТВОРЕННЯ',text:'Ти прийшла у цей світ творити нове. У тобі закладена сила першопрохідця — тієї, хто не йде слідом, а прокладає шлях. Твоя місія — проявляти себе повністю, без вибачень і без страху займати місце, яке призначено саме тобі.',tags:['Лідерство','Незалежність','Творчість','Воля'],msg:'Твоя сила — у сміливості бути першою. Там, де інші зупиняються, ти лише починаєш.'},
   2:{name:'Число Гармонії',keys:'ЧУТТЄВІСТЬ · ЄДНАННЯ · МИР',text:'Ти — майстер тонких енергій і невидимих зв\'язків. Твоя надсила у здатності відчувати те, що інші не бачать. Ти народжена будувати мости між людьми, між світами, між тим що є і тим що може бути.',tags:['Інтуїція','Дипломатія','Чуттєвість','Партнерство'],msg:'Твоя тиша сильніша за чужі слова. У твоїй присутності люди знаходять себе.'},
-  3:{name:'Число Творця',keys:'ЕКСПРЕСІЯ · РАДІСТЬ · МАГІЯ СЛОВА',text:'Ти прийшла нести світло через творення і слово. Твій голос — інструмент трансформації. Коли ти говориш, пишеш, створюєш — ти активуєш у людях щось давно забуте. Це твій дар і твоя відповідальність.',tags:['Творчість','Харизма','Натхнення','Комунікація'],msg:'Кожне твоє слово — це код. Твори усвідомлено, і реальність відгукнеться.'},
-  4:{name:'Число Майстра',keys:'СТРУКТУРА · НАДІЙНІСТЬ · БУДІВНИЦТВО',text:'Ти той фундамент, на якому тримається все справжнє. Твоя місія — будувати: системи, простір, реальність. Там, де інші бачать хаос, ти бачиш архітектуру. Твоя сила — у деталях і в довготривалому.',tags:['Дисципліна','Надійність','Майстерність','Системність'],msg:'Ти будуєш не просто плани — ти будуєш нову реальність. Крок за кроком, камінь за каменем.'},
-  5:{name:'Число Свободи',keys:'ТРАНСФОРМАЦІЯ · РУХ · ПРОБУДЖЕННЯ',text:'Ти народжена для змін і пробудження. Твоя енергія — це вітер, який не можна зупинити. Свобода для тебе — не примха, а базова потреба душі. Ти провісниця нового, і твій шлях завжди веде туди, де ще ніхто не був.',tags:['Свобода','Адаптивність','Сміливість','Авантюризм'],msg:'Твої зміни — не втеча. Це еволюція. Довіряй руху своєї душі.'},
-  6:{name:'Число Кохання',keys:'ТУРБОТА · КРАСА · ГАРМОНІЯ',text:'Ти прийшла нести любов як вищу силу трансформації. Твоє серце — це портал. Через красу, через турботу, через вміння бачити найкраще в людях — ти змінюєш реальність навколо. Твоя місія — навчити світ коханню до себе.',tags:['Любов','Краса','Відповідальність','Зцілення'],msg:'Ти не просто любиш — ти активуєш любов у тих, хто вже забув як це.'},
-  7:{name:'Число Мудреця',keys:'ПІЗНАННЯ · ГЛИБИНА · ІСТИНА',text:'Ти несеш у собі архіви давньої мудрості. Твій шлях — це шлях усвідомлення, де кожне запитання важливіше за відповідь. Ти бачиш крізь поверхню у саму суть речей. Твоя місія — знаходити істину і ділитися нею з тими, хто готовий чути.',tags:['Мудрість','Аналіз','Духовність','Інтроспекція'],msg:'Твоя глибина — це не самотність. Це простір, де народжується справжнє знання.'},
-  8:{name:'Число Сили',keys:'ВЛАДА · ДОСТАТОК · МАТЕРІАЛІЗАЦІЯ',text:'Ти прийшла опанувати мистецтво матеріалізації. Енергія, гроші, влада — для тебе це не табу, а інструменти служіння. Твоя місія — довести собі і світу, що духовність і достаток існують в єдності, а не в протиріччі.',tags:['Влада','Достаток','Лідерство','Матеріалізація'],msg:'Ти не просто заробляєш — ти матеріалізуєш нову реальність. Дозволь собі масштаб.'},
-  9:{name:'Число Мудреця Світу',keys:'ЗАВЕРШЕННЯ · МУДРІСТЬ · СЛУЖІННЯ',text:'Ти несеш у собі досвід усіх попередніх чисел. Твоя душа стара і мудра. Твоя місія — служіння через мудрість, через відпускання старого і народження нового. Ти тут не для себе — ти тут для трансформації колективного поля.',tags:['Мудрість','Альтруїзм','Завершення','Трансформація'],msg:'Ти завершуєш старі цикли не лише для себе — для всіх, хто поруч. Це твій найвищий дар.'},
-  11:{name:'Число Ченнелера',keys:'НАТХНЕННЯ · МІСТИЧНЕ · ПРОВИДІННЯ',text:'11 — це число вищого плану. Ти — канал між світами, між тим що видно і тим що відчувається. Твоя інтуїція — це прямий зв\'язок з полем. Твоя місія надихати, пробуджувати, нести світло туди, де темно.',tags:['Інтуїція','Натхнення','Провидіння','Місток між світами'],msg:'Ти не придумуєш — ти отримуєш. Довіряй тому, що приходить через тебе.'},
-  22:{name:'Число Майстра Будівника',keys:'МАСШТАБ · МАТЕРІАЛІЗАЦІЯ · АРХІТЕКТОР',text:'22 — найпотужніше число в нумерології. Ти прийшла будувати те, що змінить світ. Твої мрії — це не фантазії, це плани Всесвіту. Тобі дано надздібності перетворювати найвищі ідеї у реальні форми.',tags:['Масштаб','Майстерність','Матеріалізація','Лідерство'],msg:'Ти будуєш не для себе — ти будуєш для майбутнього. Мисли масштабно. Дій зараз.'},
-  33:{name:'Число Вчителя',keys:'ЛЮБОВ · ЗЦІЛЕННЯ · ВИЩЕ СЛУЖІННЯ',text:'33 — число Вчителя, який зцілює любов\'ю. Ти прийшла нести найвищу форму служіння через безумовну любов і мудрість. Твоя присутність сама по собі є зціленням.',tags:['Безумовна любов','Зцілення','Мудрість','Натхнення'],msg:'Ти вчиш не словами — ти вчиш своїм буттям. Кожен, хто зустрічає тебе, змінюється.'},
+  3:{name:'Число Творця',keys:'ЕКСПРЕСІЯ · РАДІСТЬ · МАГІЯ СЛОВА',text:'Ти прийшла нести світло через творення і слово. Твій голос — інструмент трансформації. Коли ти говориш, пишеш, створюєш — ти активуєш у людях щось давно забуте.',tags:['Творчість','Харизма','Натхнення','Комунікація'],msg:'Кожне твоє слово — це код. Твори усвідомлено, і реальність відгукнеться.'},
+  4:{name:'Число Майстра',keys:'СТРУКТУРА · НАДІЙНІСТЬ · БУДІВНИЦТВО',text:'Ти той фундамент, на якому тримається все справжнє. Твоя місія — будувати: системи, простір, реальність. Там, де інші бачать хаос, ти бачиш архітектуру.',tags:['Дисципліна','Надійність','Майстерність','Системність'],msg:'Ти будуєш не просто плани — ти будуєш нову реальність. Крок за кроком.'},
+  5:{name:'Число Свободи',keys:'ТРАНСФОРМАЦІЯ · РУХ · ПРОБУДЖЕННЯ',text:'Ти народжена для змін і пробудження. Твоя енергія — це вітер, який не можна зупинити. Свобода для тебе — не примха, а базова потреба душі.',tags:['Свобода','Адаптивність','Сміливість','Авантюризм'],msg:'Твої зміни — не втеча. Це еволюція. Довіряй руху своєї душі.'},
+  6:{name:'Число Кохання',keys:'ТУРБОТА · КРАСА · ГАРМОНІЯ',text:'Ти прийшла нести любов як вищу силу трансформації. Твоє серце — це портал. Через красу, через турботу — ти змінюєш реальність навколо.',tags:['Любов','Краса','Відповідальність','Зцілення'],msg:'Ти не просто любиш — ти активуєш любов у тих, хто вже забув як це.'},
+  7:{name:'Число Мудреця',keys:'ПІЗНАННЯ · ГЛИБИНА · ІСТИНА',text:'Ти несеш у собі архіви давньої мудрості. Твій шлях — це шлях усвідомлення, де кожне запитання важливіше за відповідь. Ти бачиш крізь поверхню у саму суть речей.',tags:['Мудрість','Аналіз','Духовність','Інтроспекція'],msg:'Твоя глибина — це не самотність. Це простір, де народжується справжнє знання.'},
+  8:{name:'Число Сили',keys:'ВЛАДА · ДОСТАТОК · МАТЕРІАЛІЗАЦІЯ',text:'Ти прийшла опанувати мистецтво матеріалізації. Енергія, гроші, влада — для тебе це не табу, а інструменти служіння.',tags:['Влада','Достаток','Лідерство','Матеріалізація'],msg:'Ти не просто заробляєш — ти матеріалізуєш нову реальність. Дозволь собі масштаб.'},
+  9:{name:'Число Мудреця Світу',keys:'ЗАВЕРШЕННЯ · МУДРІСТЬ · СЛУЖІННЯ',text:'Ти несеш у собі досвід усіх попередніх чисел. Твоя душа стара і мудра. Твоя місія — служіння через мудрість і відпускання старого.',tags:['Мудрість','Альтруїзм','Завершення','Трансформація'],msg:'Ти завершуєш старі цикли не лише для себе — для всіх, хто поруч.'},
+  11:{name:'Число Ченнелера',keys:'НАТХНЕННЯ · МІСТИЧНЕ · ПРОВИДІННЯ',text:'11 — це число вищого плану. Ти — канал між світами. Твоя інтуїція — це прямий зв\'язок з полем.',tags:['Інтуїція','Натхнення','Провидіння','Місток між світами'],msg:'Ти не придумуєш — ти отримуєш. Довіряй тому, що приходить через тебе.'},
+  22:{name:'Число Майстра Будівника',keys:'МАСШТАБ · МАТЕРІАЛІЗАЦІЯ · АРХІТЕКТОР',text:'22 — найпотужніше число в нумерології. Ти прийшла будувати те, що змінить світ.',tags:['Масштаб','Майстерність','Матеріалізація','Лідерство'],msg:'Ти будуєш не для себе — ти будуєш для майбутнього. Мисли масштабно.'},
+  33:{name:'Число Вчителя',keys:'ЛЮБОВ · ЗЦІЛЕННЯ · ВИЩЕ СЛУЖІННЯ',text:'33 — число Вчителя, який зцілює любов\'ю. Твоя присутність сама по собі є зціленням.',tags:['Безумовна любов','Зцілення','Мудрість','Натхнення'],msg:'Ти вчиш не словами — ти вчиш своїм буттям.'},
+};
+
+// Коди грошей
+var MONEY={
+  1:{name:'Першопрохідець достатку',keys:'ІНІЦІАТИВА · НЕЗАЛЕЖНІСТЬ · ВЛАСНИЙ ШЛЯХ',text:'Твій грошовий потік відкривається через сміливість діяти першою. Ти заробляєш найкраще тоді, коли йдеш своїм шляхом — без оглядки на інших. Твоя унікальність і лідерство притягують фінансові можливості.',tags:['Підприємництво','Лідерство','Нові ідеї','Власний бізнес'],msg:'Твої гроші — там де твоя сміливість. Дій першою.'},
+  2:{name:'Партнерський потік',keys:'СПІВПРАЦЯ · ІНТУЇЦІЯ · ГАРМОНІЯ',text:'Твоє багатство приходить через партнерство і командну роботу. Ти відчуваєш людей — і це твоя фінансова суперсила. Найбільші можливості відкриваються коли ти об\'єднуєшся з правильними людьми.',tags:['Партнерство','Командна робота','Нетворкінг','Інтуїція'],msg:'Твій фінансовий потік — у правильних союзах. Обирай людей серцем.'},
+  3:{name:'Творчий достаток',keys:'ТВОРЧІСТЬ · КОМУНІКАЦІЯ · ВИРАЖЕННЯ',text:'Твоє багатство живе у творчому вираженні. Слово, образ, ідея — це твої гроші. Чим більше ти ділишся своїм даром зі світом, тим щедріше фінансовий потік відповідає тобі.',tags:['Творчість','Публічність','Контент','Мистецтво'],msg:'Твій голос — це гроші. Виражай себе без страху.'},
+  4:{name:'Системний достаток',keys:'СТРУКТУРА · ДИСЦИПЛІНА · СТАБІЛЬНІСТЬ',text:'Твоє фінансове благополуччя будується через порядок і систему. Ти створюєш міцний фундамент — і гроші приходять стабільно і надійно. Планування і послідовність — твої фінансові союзники.',tags:['Системність','Стабільність','Планування','Надійність'],msg:'Твої гроші люблять порядок. Будуй систему — і вона працюватиме на тебе.'},
+  5:{name:'Потік свободи',keys:'СВОБОДА · РІЗНОМАНІТТЯ · РУХ',text:'Твої гроші приходять через різноманіття і зміни. Ти не обмежена одним джерелом доходу — множинні потоки це твоя природа. Свобода дій відкриває нові фінансові можливості.',tags:['Різні джерела','Гнучкість','Подорожі','Нові ринки'],msg:'Не тримайся одного шляху. Твоє багатство — у різноманітті потоків.'},
+  6:{name:'Потік турботи',keys:'СЛУЖІННЯ · КРАСА · ГАРМОНІЯ',text:'Твій фінансовий потік відкривається через допомогу іншим. Чим більше цінності ти даєш — тим більше отримуєш. Краса, гармонія і турбота про людей приносять тобі щедру фінансову винагороду.',tags:['Допомога','Сервіс','Краса','Цінність'],msg:'Давай цінність від серця — і достаток повертається стократно.'},
+  7:{name:'Потік мудрості',keys:'ЗНАННЯ · ЕКСПЕРТИЗА · ГЛИБИНА',text:'Твоє багатство криється у знаннях і експертизі. Чим глибше ти занурюєшся у свою тему — тим вищою стає твоя фінансова цінність. Люди платять за мудрість і унікальне розуміння.',tags:['Експертиза','Навчання','Консультації','Унікальне знання'],msg:'Твоя глибина — це золото. Поглиблюй знання і ціни свою експертизу.'},
+  8:{name:'Потік влади',keys:'МАСШТАБ · ВЛАДА · МАТЕРІАЛІЗАЦІЯ',text:'Ти народжена для великих грошей. Твій фінансовий код налаштований на масштаб і владу. Чим більше ти дозволяєш собі мислити масштабно — тим потужніший фінансовий потік.',tags:['Великий масштаб','Інвестиції','Управління','Влада'],msg:'Ти створена для великих грошей. Дозволь собі масштаб без обмежень.'},
+  9:{name:'Потік служіння',keys:'ЩЕДРІСТЬ · ЗАВЕРШЕННЯ · МУДРІСТЬ',text:'Твій фінансовий потік відкривається через щедрість і служіння. Парадокс твого числа: чим більше ти віддаєш — тим більше приходить. Відпускання старого відкриває нові фінансові канали.',tags:['Щедрість','Благодійність','Завершення циклів','Нові початки'],msg:'Відпусти старі фінансові обмеження. Щедрість відкриває нові потоки.'},
+  11:{name:'Натхненний потік',keys:'НАТХНЕННЯ · ІНТУЇЦІЯ · ВИЩИЙ ПЛАН',text:'Твої гроші приходять через натхнення і інтуїтивні рішення. Коли ти слідуєш своєму внутрішньому голосу — фінансові можливості з\'являються магічно і своєчасно.',tags:['Інтуїція','Натхнення','Spiritual business','Унікальність'],msg:'Довіряй інтуїції у фінансових рішеннях. Твій внутрішній голос знає шлях.'},
+  22:{name:'Архітектор достатку',keys:'МАСШТАБ · СИСТЕМА · ГЛОБАЛЬНЕ МИСЛЕННЯ',text:'22 — найпотужніший фінансовий код. Ти здатна будувати фінансові імперії. Твоє мислення виходить за межі звичного — і саме це відкриває безмежні фінансові можливості.',tags:['Великий бізнес','Системи','Глобальне мислення','Спадщина'],msg:'Мисли глобально. Твій фінансовий потенціал не має меж.'},
+  33:{name:'Потік любові і достатку',keys:'ЛЮБОВ · ЗЦІЛЕННЯ · ВИЩА ЦІННІСТЬ',text:'Твоє багатство приходить через найвищу форму служіння — через любов і зцілення. Люди відчувають твою енергію і щедро платять за неї. Твоя присутність сама по собі має фінансову цінність.',tags:['Зцілення','Висока цінність','Любов','Духовний бізнес'],msg:'Твоя любов — це найдорожчий продукт. Цінуй свій дар відповідно.'},
+};
+
+// Коди удачі
+var LUCK={
+  1:{name:'Удача першого кроку',keys:'ДІЯ · ІНІЦІАТИВА · ПОЧАТОК',text:'Твоя удача активується в момент коли ти робиш перший крок. Не чекай ідеального моменту — діяй. Кожен новий початок для тебе несе особливу магію і підтримку Всесвіту.',tags:['Нові початки','Дія','Сміливість','Перший крок'],msg:'Удача любить тих хто починає. Твій час — зараз.'},
+  2:{name:'Удача партнерства',keys:'СОЮЗИ · СИНХРОННІСТЬ · ЗУСТРІЧІ',text:'Твоя удача приходить через людей. Правильні зустрічі у правильний час — це твоя суперсила. Будь відкрита до нових знайомств і синхронних збігів — в них прихований твій успіх.',tags:['Зустрічі','Синхронність','Союзи','Відкритість'],msg:'Кожна зустріч — це можливість. Будь відкритою до людей.'},
+  3:{name:'Удача вираження',keys:'СЛОВО · ТВОРЧІСТЬ · РАДІСТЬ',text:'Твоя удача активується через радість і творче вираження. Коли ти в потоці — все складається само собою. Роби те що приносить радість і удача слідує за тобою.',tags:['Радість','Творчість','Вираження','Потік'],msg:'Роби з радістю — і удача стане твоєю постійною супутницею.'},
+  4:{name:'Удача порядку',keys:'ПІДГОТОВКА · СИСТЕМА · ТЕРПІННЯ',text:'Твоя удача живе у деталях і підготовці. Ти приваблюєш везіння через ретельну підготовку і системний підхід. Терпіння і послідовність — твої ключі до великого успіху.',tags:['Підготовка','Деталі','Терпіння','Система'],msg:'Готуйся ретельно — і удача знайде тебе підготовленою.'},
+  5:{name:'Удача змін',keys:'АДАПТАЦІЯ · РУХ · НОВІ ГОРИЗОНТИ',text:'Твоя удача живе у змінах і пригодах. Коли ти відкрита до нового і готова адаптуватися — можливості з\'являються звідусіль. Рух і гнучкість притягують твоє везіння.',tags:['Зміни','Пригоди','Адаптація','Подорожі'],msg:'Рухайся — і удача рухається разом з тобою.'},
+  6:{name:'Удача серця',keys:'ЛЮБОВ · ГАРМОНІЯ · ТУРБОТА',text:'Твоя удача відкривається через любов і гармонійні стосунки. Коли твоє серце відкрите — Всесвіт відповідає щедрістю. Турбота про близьких повертається до тебе багаторазово.',tags:['Любов','Гармонія','Стосунки','Сім\'я'],msg:'Відкрий серце — і удача відкриє для тебе всі двері.'},
+  7:{name:'Удача знання',keys:'ДОСЛІДЖЕННЯ · ІНТУЇЦІЯ · ВІДКРИТТЯ',text:'Твоя удача приходить через пізнання і дослідження. Чим більше ти вчишся і досліджуєш — тим частіше з\'являються щасливі збіги. Твоя інтуїція — найточніший компас до удачі.',tags:['Навчання','Дослідження','Інтуїція','Відкриття'],msg:'Шукай — і знайдеш більше ніж очікувала. Твоя удача у знанні.'},
+  8:{name:'Удача масштабу',keys:'АМБІЦІЇ · МАСШТАБ · ВЛАДА',text:'Твоя удача приходить коли ти мислиш і дієш масштабно. Маленькі цілі — маленьке везіння. Великі амбіції — велика удача. Не обмежуй себе у мріях.',tags:['Великі цілі','Амбіції','Масштаб','Влада'],msg:'Мисли більше — і удача відповідатиме масштабу твоїх думок.'},
+  9:{name:'Удача відпускання',keys:'ЗАВЕРШЕННЯ · ПРОЩЕННЯ · НОВИЙ ЦИКЛ',text:'Твоя удача приходить через відпускання старого. Коли ти відпускаєш те що вже відслужило — звільняється місце для нових можливостей. Прощення і завершення відкривають потоки везіння.',tags:['Відпускання','Прощення','Новий цикл','Очищення'],msg:'Відпусти старе — і нова удача вже чекає на тебе.'},
+  11:{name:'Містична удача',keys:'ЗНАКИ · СИНХРОННІСТЬ · ВИЩА СИЛА',text:'Твоя удача має містичну природу. Знаки, збіги, передчуття — все це реальні інструменти твого везіння. Довіряй знакам Всесвіту і вони приведуть тебе до потрібного місця у потрібний час.',tags:['Знаки','Синхронність','Вища сила','Довіра'],msg:'Всесвіт постійно надсилає тобі знаки. Навчися їх читати.'},
+  22:{name:'Удача будівника',keys:'ТВОРЕННЯ · СПАДЩИНА · МАСШТАБ',text:'22 — це удача тих хто будує щось більше за себе. Твоє везіння масштабне і довготривале. Коли ти працюєш заради великої мети — Всесвіт підтримує тебе з надзвичайною силою.',tags:['Велика мета','Спадщина','Масштаб','Підтримка'],msg:'Будуй велике — і великі сили підтримуватимуть тебе.'},
+  33:{name:'Удача безумовної любові',keys:'ЛЮБОВ · ЗЦІЛЕННЯ · МАГІЯ ПРИСУТНОСТІ',text:'Твоя удача — в твоїй присутності і любові. Куди б ти не прийшла — ти несеш особливу магію. Люди притягуються до тебе і відкривають перед тобою найкращі можливості.',tags:['Присутність','Магія','Любов','Притягнення'],msg:'Твоя присутність — вже є удачею для тих хто поруч. І для тебе теж.'},
 };
 
 function reduce(n){
   if(n===11||n===22||n===33)return n;
   if(n>9){var s=0;String(n).split('').forEach(function(d){s+=parseInt(d)});return reduce(s);}
+  return n;
+}
+
+function reduceSimple(n){
+  if(n>9){var s=0;String(n).split('').forEach(function(d){s+=parseInt(d)});return reduceSimple(s);}
   return n;
 }
 
@@ -194,32 +327,82 @@ function calculate(){
   if(parts.length!==3){alert('Введи дату у форматі дд.мм.рррр');return;}
   var d=parseInt(parts[0]),m=parseInt(parts[1]),y=parseInt(parts[2]);
   if(!d||!m||!y||d<1||d>31||m<1||m>12||y<1900||y>2024){alert('Введи коректну дату народження');return;}
+
+  // Код долі
   var sum=0;
   (String(d)+String(m)+String(y)).split('').forEach(function(x){sum+=parseInt(x)});
-  var num=reduce(sum);
-  var data=N[num]||N[1];
+  var destNum=reduce(sum);
+
+  // Код грошей = день + місяць
+  var moneySum=0;
+  (String(d)+String(m)).split('').forEach(function(x){moneySum+=parseInt(x)});
+  var moneyNum=reduce(moneySum);
+
+  // Код удачі = рік
+  var luckSum=0;
+  String(y).split('').forEach(function(x){luckSum+=parseInt(x)});
+  var luckNum=reduceSimple(luckSum);
+  if(luckNum===0)luckNum=9;
+
+  var dest=DESTINY[destNum]||DESTINY[1];
+  var money=MONEY[moneyNum]||MONEY[1];
+  var luck=LUCK[luckNum]||LUCK[1];
+
   var user=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user?tg.initDataUnsafe.user:{};
+
   calcData={
     birthday:bd,name:name,
-    destiny_number:String(num),
-    destiny_name:data.name,
-    destiny_keys:data.keys,
-    destiny_text:data.text,
-    destiny_msg:data.msg,
-    destiny_tags:data.tags,
+    destiny_number:String(destNum),
+    destiny_name:dest.name,
+    destiny_keys:dest.keys,
+    destiny_text:dest.text,
+    destiny_msg:dest.msg,
+    destiny_tags:dest.tags,
+    money_number:String(moneyNum),
+    money_name:money.name,
+    luck_number:String(luckNum),
+    luck_name:luck.name,
     first_name:user.first_name||name,
     username:user.username||'',
     user_id:user.id?String(user.id):''
   };
-  document.getElementById('destNum').textContent=num;
-  document.getElementById('destName').textContent=data.name;
+
+  // Заповнюємо число долі
+  document.getElementById('destNum').textContent=destNum;
+  document.getElementById('destName').textContent=dest.name;
   document.getElementById('destPerson').textContent=name+' · '+bd;
-  document.getElementById('descKeys').textContent=data.keys;
-  document.getElementById('descText').textContent=data.text;
-  document.getElementById('msgText').textContent=data.msg;
-  document.getElementById('tags').innerHTML=data.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
+  document.getElementById('destKeys').textContent=dest.keys;
+  document.getElementById('destText').textContent=dest.text;
+  document.getElementById('destMsg').textContent=dest.msg;
+  document.getElementById('destTags').innerHTML=dest.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
+
+  // Заповнюємо код грошей
+  document.getElementById('moneyNum').textContent=moneyNum;
+  document.getElementById('moneyName').textContent=money.name;
+  document.getElementById('moneyPerson').textContent=name+' · '+bd;
+  document.getElementById('moneyKeys').textContent=money.keys;
+  document.getElementById('moneyText').textContent=money.text;
+  document.getElementById('moneyMsg').textContent=money.msg;
+  document.getElementById('moneyTags').innerHTML=money.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
+
+  // Заповнюємо код удачі
+  document.getElementById('luckNum').textContent=luckNum;
+  document.getElementById('luckName').textContent=luck.name;
+  document.getElementById('luckPerson').textContent=name+' · '+bd;
+  document.getElementById('luckKeys').textContent=luck.keys;
+  document.getElementById('luckText').textContent=luck.text;
+  document.getElementById('luckMsg').textContent=luck.msg;
+  document.getElementById('luckTags').innerHTML=luck.tags.map(function(t){return'<div class="tag">'+t+'</div>'}).join('');
+
   document.getElementById('result').style.display='block';
   setTimeout(function(){document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'})},100);
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+  event.currentTarget.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
 }
 
 async function saveAndSend(){
@@ -241,13 +424,6 @@ async function saveAndSend(){
     status.textContent='Помилка. Спробуй ще раз.';
     btn.disabled=false;
   }
-}
-
-function goConsult(){
-  var num=calcData?calcData.destiny_number:'';
-  var url='https://t.me/veronika_myhailovska_bot?start=rozpakova_'+num;
-  if(tg){tg.openTelegramLink(url);}
-  else{window.open(url,'_blank');}
 }
 </script>
 </body>
